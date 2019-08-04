@@ -2,6 +2,15 @@
 
 import argparse
 
+# This function checks to see if a word is a subsequence of a string sequence
+# A string is a subsequence of another if all its chars appear in the same order in both
+# This function works by comparing the first char in each string to the other
+# If the chars are the same they are both removed from the strings and the strings
+# are passed back to the function recursively
+# The function terminates if the word is longer than the sequence, meaning it cant
+# be a subsequence, or if the word length is = 0 meaning all of its characters
+# have been matched in order in the sequence
+# O(n) time
 def check_for_subset (word, sequence):
     if len(word) > len(sequence):
         return False
@@ -40,7 +49,7 @@ if __name__ == '__main__':
     # get length of S
     sequence_length = len(sequence)
 
-    # Starting with the longest word in D compare the letters in D[i][j] to S[i]
+    # Starting with the longest word in D check to see if it is a subsequence O(n)
     for word in words:
         word.rstrip()
         compare_seq = sequence
@@ -51,4 +60,4 @@ if __name__ == '__main__':
     if len(longest_sub_sequence) > 0:
         print("The longest word in the sequence is: ", longest_sub_sequence)
     else:
-        print("No provided word is a subsequence")
+        print("No provided word is a sub sequence")
